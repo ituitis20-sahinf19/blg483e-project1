@@ -21,6 +21,7 @@ from services.index import (
 )
 from services.crawler import WorkerPool
 from services.dashboard import Dashboard
+from services.api_server import APIServer
 
 
 class CrawlerCoordinator:
@@ -310,6 +311,11 @@ if __name__ == "__main__":
     dashboard.start()
     print("[OK] Real-time dashboard started (separate window)\n")
     
+    # Start REST API server on localhost:3600
+    api_server = APIServer(app, port=3600)
+    api_server.start()
+    print()
+    
     # Interactive CLI loop
     print("Commands:")
     print("  search <query>  - Search the index (non-blocking)")
@@ -331,6 +337,7 @@ if __name__ == "__main__":
                 
                 if command == "quit":
                     print("\nShutting down...")
+                    api_server.stop()
                     dashboard.stop()
                     app.shutdown()
                     print("[OK] Shutdown complete")
@@ -378,6 +385,7 @@ if __name__ == "__main__":
             
             except KeyboardInterrupt:
                 print("\n\nInterrupted by user")
+                api_server.stop()
                 dashboard.stop()
                 app.shutdown()
                 break
@@ -386,6 +394,7 @@ if __name__ == "__main__":
     
     finally:
         # Ensure graceful cleanup
+        api_server.stop()
         dashboard.stop()
         if app.is_active():
             app.shutdown()
