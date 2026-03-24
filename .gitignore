@@ -1,0 +1,12 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Optional: Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore agent documentation markdown files
+agent_docs/
