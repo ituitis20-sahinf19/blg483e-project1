@@ -1,35 +1,35 @@
-\# VibeCrawler 🕸️🔍
+# VibeCrawler 🕸️🔍
 
-\!\[Python\](https://img.shields.io/badge/python-3.8+-blue.svg)  
-\!\[Dependencies\](https://img.shields.io/badge/dependencies-0-brightgreen.svg)
+[Python](https://img.shields.io/badge/python-3.8+-blue.svg)  
+[Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen.svg)
 
 A high-performance, thread-safe web crawler and real-time search engine built entirely with Python's native standard library. No external dependencies required.
 
-\#\# Overview
+## Overview
 
 VibeCrawler is a concurrent web crawler that recursively discovers and indexes web pages, enabling real-time full-text search on the indexed content. The system uses worker thread pools for concurrent fetching, implements automatic back pressure for memory safety, and provides thread-safe concurrent search capabilities while crawling continues.
 
-**\*\*Key Innovation:\*\*** Search queries can execute concurrently with active crawling without blocking either operation, utilizing a custom-built Read-Write Lock (RWLock) for efficient data access.
+****Key Innovation:**** Search queries can execute concurrently with active crawling without blocking either operation, utilizing a custom-built Read-Write Lock (RWLock) for efficient data access.
 
-\#\# Features
+## Features
 
-\- **\*\*Concurrent Recursive Crawling:\*\*** Fetch and index pages up to a user-specified maximum depth using a worker pool.  
-\- **\*\*Real-Time Search:\*\*** Query indexed content at any time—even while the crawler is actively discovering new pages.  
-\- **\*\*Real-Time Dashboard:\*\*** View the crawled URLs in real-time, from a seperate window. 
-\- **\*\*Smart Relevancy Ranking:\*\*** Search results are ranked by keyword match count (primary) and term frequency (secondary).  
-\- **\*\*Memory Safe (Back Pressure):\*\*** Bounded work queues prevent memory exhaustion; workers automatically throttle discovery when the queue is full.  
-\- **\*\*Zero Duplicate Crawling:\*\*** A thread-safe visited set ensures URLs are only processed once.  
-\- **\*\*Zero External Dependencies:\*\*** Built purely with Python's standard library (\`threading\`, \`queue\`, \`urllib\`, \`html.parser\`).
+****Concurrent Recursive Crawling:**** Fetch and index pages up to a user-specified maximum depth using a worker pool.  
+****Real-Time Search:**** Query indexed content at any time—even while the crawler is actively discovering new pages.  
+****Real-Time Dashboard:**** View the crawled URLs in real-time, from a seperate window. 
+****Smart Relevancy Ranking:**** Search results are ranked by keyword match count (primary) and term frequency (secondary).  
+****Memory Safe (Back Pressure):**** Bounded work queues prevent memory exhaustion; workers automatically throttle discovery when the queue is full.  
+****Zero Duplicate Crawling:**** A thread-safe visited set ensures URLs are only processed once.  
+****Zero External Dependencies:**** Built purely with Python's standard library (threading, queue, urllib, html.parser).
 
-\#\# Prerequisites
+## Prerequisites
 
-\- **\*\*Python 3.8+\*\*** is required.  
+\- ****Python 3.8+**** is required.  
 \- No virtual environment or \`pip install\` required since there are no external dependencies\!
 
-\#\# Quickstart & Usage
+## Quickstart & Usage
 
-1\. **\*\*Clone the repository:\*\***  
-   \`\`\`bash  
+1. **Clone the repository:**  
+   bash  
    git clone \[https://github.com/yourusername/vibecrawler.git\](https://github.com/yourusername/vibecrawler.git)  
    cd vibecrawler
 

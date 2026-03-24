@@ -358,9 +358,9 @@ if __name__ == "__main__":
                         print("No results found (index may still be building)\n")
                     else:
                         print(f"Found {len(results)} results:\n")
-                        for i, (url, origin, depth) in enumerate(results[:10], 1):
+                        for i, (url, origin, depth, frequency) in enumerate(results[:10], 1):
                             print(f"  {i}. {url}")
-                            print(f"     Origin: {origin} | Depth: {depth}\n")
+                            print(f"     Origin: {origin} | Depth: {depth} | Frequency: {frequency}\n")
                         
                         if len(results) > 10:
                             print(f"  ... and {len(results) - 10} more results\n")

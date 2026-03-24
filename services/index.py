@@ -216,7 +216,7 @@ class InvertedIndex:
             query: Search query string (e.g., "python web crawler")
             
         Returns:
-            List of tuples: [(relevant_url, origin_url, depth), ...]
+            List of tuples: [(relevant_url, origin_url, depth, total_frequency), ...]
             Sorted by relevance (keyword match count, then frequency).
             Empty list if no matches.
             
@@ -265,10 +265,10 @@ class InvertedIndex:
             key=lambda x: (-x[0], -x[1])  # Negative for descending sort
         )
         
-        # Convert IndexEntry objects to result tuples (url, origin_url, depth)
+        # Convert IndexEntry objects to result tuples (url, origin_url, depth, frequency)
         ranked_tuples = [
-            (entry.url, entry.origin_url, entry.depth)
-            for _, _, entry in sorted_results
+            (entry.url, entry.origin_url, entry.depth, freq_sum)
+            for _, freq_sum, entry in sorted_results
         ]
         
         return ranked_tuples

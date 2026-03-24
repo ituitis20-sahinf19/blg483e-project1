@@ -81,9 +81,10 @@ class SearchAPIHandler(BaseHTTPRequestHandler):
                 {
                     "url": url,
                     "origin_url": origin_url,
-                    "depth": depth
+                    "depth": depth,
+                    "frequency": frequency
                 }
-                for url, origin_url, depth in results
+                for url, origin_url, depth, frequency in results
             ]
             
             # Send success response
